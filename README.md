@@ -9,3 +9,29 @@ Project created with:
 2. JAVA OpenJDK 11
 3. Spring-boot 2.7.14
 
+In the pom, the dependency has been added to the provided library:
+```
+<dependency>
+    <groupId>io.corp.calculator</groupId>
+    <artifactId>tracer</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+In order to use it, you need to run the maven command:
+
+`mvn install:install-file -Dfile=lib/tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=tracer -Dversion=1.0.0 -Dpackaging=jar`
+
+To create the folder `/target`, which will contain the application JAR ([calculator-0.0.1-SNAPSHOT.jar](target%2Fcalculator-0.0.1-SNAPSHOT.jar)), run the command `mvn clean install`.
+
+# Steps
+At this point we are ready to start the application using the command:
+
+`mvn spring-boot:run`
+
+Or by running the .jar:
+
+`java -jar calculadora-0.0.1-SNAPSHOT.jar`
+
+Once the application is up, Swagger can be used for testing and documentation:
+
+http://localhost:8080/swagger-ui/index.html
