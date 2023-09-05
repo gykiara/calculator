@@ -17,7 +17,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     public ResponseDTO applyAddition(BigDecimal firstNumber, BigDecimal secondNumber) {
 
         BigDecimal result = firstNumber.add(secondNumber);
-        tracerAPI.trace("AdditionServiceImpl - addition result: " + result);
+        tracerAPI.trace("CalculatorServiceImpl - addition result: " + result);
         return ResponseDTO.builder().result(result).build();
     }
 
@@ -25,7 +25,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     public ResponseDTO applySubtraction(BigDecimal firstNumber, BigDecimal secondNumber) {
 
         BigDecimal result = firstNumber.subtract(secondNumber);
-        tracerAPI.trace("SubtractionServiceImpl - result subtraction: " + result);
+        tracerAPI.trace("CalculatorServiceImpl - subtraction result: " + result);
         return ResponseDTO.builder().result(result).build();
     }
 }
