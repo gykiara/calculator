@@ -26,6 +26,11 @@ public class CalculatorController {
     private TracerImpl tracer;
 
     @Operation(summary = "Get result of addition", description = "Returns the result of the operation SUM.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Call successfull.", content = @Content(schema = @Schema(implementation = BigDecimal.class))),
+            @ApiResponse(responseCode = "400", description = "Bad Request - Cannot perform the operation, some data is incorrect.",
+                    content = @Content(schema = @Schema(implementation = String.class)))
+    })
     @GetMapping("/addition")
     public ResponseEntity<ResponseDTO> getResultAddition(@RequestParam BigDecimal firstNumber, @RequestParam BigDecimal secondNumber) {
         tracer.trace("CalculatorController - Addition");
@@ -34,6 +39,11 @@ public class CalculatorController {
     }
 
     @Operation(summary = "Get result of subtraction", description = "Returns the result of the operation SUBTRACT.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Call successfull.", content = @Content(schema = @Schema(implementation = BigDecimal.class))),
+            @ApiResponse(responseCode = "400", description = "Bad Request - Cannot perform the operation, some data is incorrect.",
+                    content = @Content(schema = @Schema(implementation = String.class)))
+    })
     @GetMapping("/subtraction")
     public ResponseEntity<ResponseDTO> getResultSubtraction(@RequestParam BigDecimal firstNumber, @RequestParam BigDecimal secondNumber) {
         tracer.trace("CalculatorController - Subtraction");
